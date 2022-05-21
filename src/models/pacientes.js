@@ -2,8 +2,8 @@ const {DataTypes} = require("sequelize");
 
 const DataBase = require("../database/index");
 
-const Pacientes = DataBase.define(
-    "pacientes",
+const Paciente = DataBase.define(
+    "paciente",
     {
         id: {
             type: DataTypes.INTEGER,
@@ -26,7 +26,8 @@ const Pacientes = DataBase.define(
             allowNull: false,
         },
 
-    }
+    },
+    { tableName: "paciente", timestamps: false, underscored: true }
 );
 
-module.exports = Pacientes;
+module.exports = Paciente;

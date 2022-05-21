@@ -2,8 +2,8 @@ const {DataTypes} = require("sequelize");
 
 const DataBase = require("../database/index");
 
-const Psicologos = DataBase.define(
-    "psicologos",
+const Psicologo = DataBase.define(
+    "psicologo",
     {
         id: {
             type: DataTypes.INTEGER,
@@ -30,8 +30,9 @@ const Psicologos = DataBase.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
-    }
+    },
+    { tableName: "psicologo", timestamps: false, underscored: true }
 );
 
 
-module.exports = Psicologos;
+module.exports = Psicologo;
