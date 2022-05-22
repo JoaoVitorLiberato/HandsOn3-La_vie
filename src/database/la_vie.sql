@@ -7,8 +7,10 @@ create table psicologo(
     nome varchar(100) not null,
     email varchar(100) not null unique,
     senha varchar(16),
-    aprensentacao varchar(1000) not null
+    apresentacao varchar(1000) not null
 );
+
+
 
 
 create table paciente(
@@ -30,5 +32,12 @@ create table atendimentos(
 
 );
 
+
+INSERT INTO psicologo (id, nome, email, senha, apresentacao)
+VALUES (1, "Albert Stelio Klisman", "albertStelio@gmail.com", "123456albert",
+ "Olá, eu sou o albert. Possui 10 anos de experiencia em trantornos celebrais."
+ );
+
+select * FROM psicologo
 
 
