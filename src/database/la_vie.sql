@@ -17,7 +17,8 @@ create table paciente(
 	id int primary key auto_increment,
     nome varchar(100) not null,
     idade int not null,
-    email varchar(100) not null unique
+    email varchar(100) not null unique,
+    senha varchar(16) not null
 );
 
 
@@ -32,10 +33,34 @@ create table atendimentos(
 
 );
 
+-- Exemplos de Psicologos
 
-INSERT INTO psicologo (id, nome, email, senha, apresentacao)
-VALUES (1, "Albert Stelio Klisman", "albertStelio@gmail.com", "123456albert",
- "Olá, eu sou o albert. Possui 10 anos de experiencia em trantornos celebrais."
+INSERT INTO psicologo (nome, email, senha, apresentacao)
+VALUES ("Albert Stelio Klisman", "albertStelio@teste.com", "12345",
+ "Ser feliz sem motivo é a mais autêntica forma de felicidade."
  );
+ 
+ INSERT INTO psicologo (nome, email, senha, apresentacao)
+VALUES ("Livia Lavinon Oliver", "LavinonOlivero@teste.com", "12345",
+ "Ser feliz sem motivo é a mais autêntica forma de felicidade."
+ );
+ 
+  INSERT INTO psicologo (nome, email, senha, apresentacao)
+VALUES ("Alan Santissimo", "SantisimoAlan@teste.com", "12345",
+ "Ser feliz sem motivo é a mais autêntica forma de felicidade."
+ );
+ 
+   INSERT INTO psicologo (nome, email, senha, apresentacao)
+VALUES ("Tales dos Santos", "talesSantos@teste.com", "12345",
+ "Ser feliz sem motivo é a mais autêntica forma de felicidade."
+ );
+ 
+    INSERT INTO psicologo (nome, email, senha, apresentacao)
+VALUES ("João Barreto", "barretoDa51@teste.com", "12345",
+ "Ser feliz sem motivo é a mais autêntica forma de felicidade."
+ );
+
+ 
+ 
 
 select * FROM psicologo

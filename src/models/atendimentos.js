@@ -44,3 +44,5 @@ const Atendimentos = DataBase.define(
     {tableName: "atendimentos",  timestamps: false, underscored: true}
 
     );
+
+    module.exports = Atendimentos;

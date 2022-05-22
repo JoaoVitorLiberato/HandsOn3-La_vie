@@ -26,6 +26,11 @@ const Paciente = DataBase.define(
             allowNull: false,
         },
 
+        senha: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
     },
     { tableName: "paciente", timestamps: false, underscored: true }
 );

@@ -13,7 +13,7 @@ const PsicologoController = require("../controlles/psicologos");
 routes.get("/", home);
 
 
-routes.get("/psicologos/", PsicologoController.index);
+routes.get("/psicologo/allList", PsicologoController.AllList);
 
 
 

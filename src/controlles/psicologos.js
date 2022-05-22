@@ -1,18 +1,21 @@
 const {psicologo, atendimentos, pacientes} = require("../models");
 
 const PsicologoController = {
-    index: async (req, res) => {
+    AllList: async (req, res) => {
         try {
             
-            const todosPsicologos = await psicologo.findAll({ include : atendimentos });
-            res.json(todosPsicologos);
+            const allPsicologos = await psicologo.findAll();
+            res.json(allPsicologos);
  
         } catch (error) {
+           
             console.error(error.message);
-            
             res.statusCode = 500;
-            res.json({erro: "Problemas no sistema, Por favor recarregue a página novamente"});
+            res.json({erro: "Shiiiii, Houve problemas no sistema!"});
 
         }
     }
 }
+
+
+module.exports = PsicologoController;
