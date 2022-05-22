@@ -22,13 +22,13 @@ create table paciente(
 
 
 create table atendimentos(
-	id_psicologo int not null,
-    id_paciente int not null,
+	psicologo_id int not null,
+    paciente_id int not null,
 	data_atendimento datetime,
     observacao varchar(1000),
     
-    constraint FK_idPsicologo foreign key(id_psicologo) references psicologo(id),
-    constraint FK_idPaciente foreign key(id_paciente) references paciente(id)
+    constraint FK_Psicologo_id foreign key(psicologo_id) references psicologo(id),
+    constraint FK_Paciente_id foreign key(paciente_id) references paciente(id)
 
 );
 
@@ -39,5 +39,3 @@ VALUES (1, "Albert Stelio Klisman", "albertStelio@gmail.com", "123456albert",
  );
 
 select * FROM psicologo
-
-

@@ -3,11 +3,17 @@ const  { route }  = require("express/lib/application");
 
 const routes = express.Router();
 
-const homeController = require("../controlles/home");
-const {home} = homeController;
+const {home} = require("../controlles/home");
+
+const PsicologoController = require("../controlles/psicologos");
+
+
 
 
 routes.get("/", home);
+
+
+routes.get("/psicologos/", PsicologoController.index);
 
 
 
