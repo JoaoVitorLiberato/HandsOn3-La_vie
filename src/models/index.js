@@ -1,6 +1,6 @@
 const DataBase = require("../database/index");
 
-const Paciente = require("./pacientes");
+const Paciente = require("./paciente");
 const Psicologo = require("./psicologo");
 const Atendimentos = require("./atendimentos");
 
@@ -8,11 +8,11 @@ Paciente.hasMany(Atendimentos);
 Psicologo.hasMany(Atendimentos);
 
 Atendimentos.belongsTo(Paciente, {
-    foreignKey: "id_pacientes"
+    foreignKey: "paciente_id"
 });
 
 Atendimentos.belongsTo(Psicologo, {
-    foreignKey: "id_psicologo"
+    foreignKey: "psicologo_id"
 });
 
 
