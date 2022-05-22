@@ -1,9 +1,11 @@
+const DataBase = require("../database/index");
 const {DataTypes} = require("sequelize");
+
 const Psicologo = require("./psicologo");
 const Paciente = require("./paciente");
-const dataBase = require("../database");
 
-const Atendimentos = dataBase.define(
+
+const Atendimentos = DataBase.define(
     "atedimentos",
     {
         id: {
