@@ -86,14 +86,13 @@ const PsicologoController = {
             if (updatePsicologo == null) {
                 return res.status(404).json({
                     message: "Psychologist not found!",
-                });;
-            }
+                });
+            };
 
 
-            res.staus(200).json(`Psychologist ${psicologoUpdated.nome} successfully updated!` );
+            res.staus(200).json(`Psychologist ${psicologoUpdated.nome} successfully updated!`);
 
             console.log(updatePsicologo);
-
 
 
 
@@ -101,12 +100,41 @@ const PsicologoController = {
         } catch (error) {
 
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
-        
+
         }
+    },
+
+
+    destroyPsicologo: async (req, res) => {
+
+        const { id, nome } = req.params;
+
+        try {
+
+            const SeachPsicologo = await Psicologo.findByPk(id);
+            console.log(SeachPsicologo);
+
+            if (!SeachPsicologo) {
+                return res.status(404).json({
+                    message: "Psychologist not found!",
+                });
+
+            };
+
+            await SeachPsicologo.destroy();
+            res.staus(204)
+            res.json(`${id} psychologist ${nome} successfully deleted`);
+
+
+        } catch (error) {
+
+            res.status(500).json({ error: "Shiiiii, There were system problems!" });
+
+        }
+
+
+
     }
-
-
-
 
 
 }
