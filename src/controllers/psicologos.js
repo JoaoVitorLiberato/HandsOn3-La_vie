@@ -83,22 +83,21 @@ const PsicologoController = {
 
             const updatePsicologo = await Psicologo.findByPk(id);
 
-            if (updatePsicologo == null) {
+            if (!updatePsicologo) {
                 return res.status(404).json({
                     message: "Psychologist not found!",
                 });
             };
 
+            await updatePsicologo.update({ nome, email, senha, apresentacao});
 
-            res.staus(200).json(`Psychologist ${psicologoUpdated.nome} successfully updated!`);
-
-            console.log(updatePsicologo);
-
+            res.status(200).json(updatePsicologo).send(`Psychologist successfully updated!`);
+            
 
 
 
         } catch (error) {
-
+            console.log(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
@@ -111,19 +110,18 @@ const PsicologoController = {
 
         try {
 
-            const SeachPsicologo = await Psicologo.findByPk(id);
-            console.log(SeachPsicologo);
+            const psicologos = await Psicologo.findByPk(id);
+            console.log(psicologos);
 
-            if (!SeachPsicologo) {
+            if (!psicologos) {
                 return res.status(404).json({
                     message: "Psychologist not found!",
                 });
 
             };
 
-            await SeachPsicologo.destroy();
-            res.staus(204)
-            res.json(`${id} psychologist ${nome} successfully deleted`);
+            await psicologos.destroy();
+            res.status(204).send("");
 
 
         } catch (error) {
