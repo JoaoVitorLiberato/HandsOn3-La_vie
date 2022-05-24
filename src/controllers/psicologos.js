@@ -2,7 +2,7 @@ const { Psicologo } = require("../models");
 
 const PsicologoController = {
 
-    AllList: async (req, res) => {
+    index: async (req, res) => {
         try {
 
             const allPsicologos = await Psicologo.findAll();
@@ -17,7 +17,7 @@ const PsicologoController = {
         }
     },
 
-    CreateNewPsicologo: async (req, res) => {
+    store: async (req, res) => {
 
         try {
 
@@ -51,7 +51,7 @@ const PsicologoController = {
 
     },
 
-    findByID: async (req, res) => {
+    show: async (req, res) => {
         const { id } = req.params;
 
         try {
@@ -74,7 +74,7 @@ const PsicologoController = {
         }
     },
 
-    updatePsicologo: async (req, res) => {
+    update: async (req, res) => {
 
         try {
             const { id } = req.params;
@@ -94,8 +94,6 @@ const PsicologoController = {
             res.status(200).json(updatePsicologo).send(`Psychologist successfully updated!`);
             
 
-
-
         } catch (error) {
             console.log(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
@@ -104,14 +102,14 @@ const PsicologoController = {
     },
 
 
-    destroyPsicologo: async (req, res) => {
+    destroy: async (req, res) => {
 
-        const { id, nome } = req.params;
+        const { id } = req.params;
 
         try {
 
             const psicologos = await Psicologo.findByPk(id);
-            console.log(psicologos);
+            
 
             if (!psicologos) {
                 return res.status(404).json({
@@ -125,7 +123,7 @@ const PsicologoController = {
 
 
         } catch (error) {
-
+            
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
