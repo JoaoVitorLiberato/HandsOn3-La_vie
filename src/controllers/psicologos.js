@@ -68,7 +68,7 @@ const PsicologoController = {
 
 
         } catch (error) {
-
+            console.error(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
@@ -123,7 +123,7 @@ const PsicologoController = {
 
 
         } catch (error) {
-            
+            console.error(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }

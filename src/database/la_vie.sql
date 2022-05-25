@@ -10,6 +10,7 @@ create table psicologo(
     apresentacao varchar(1000) not null
 );
 
+-- drop table psicologo;
 
 
 
@@ -17,11 +18,11 @@ create table paciente(
 	id int primary key auto_increment,
     nome varchar(100) not null,
     idade date not null,
-    email varchar(100) not null unique,
-    senha varchar(16) not null
+    email varchar(100) not null unique
+ 
 );
 
--- drop table paciente;
+drop table paciente;
 
 
 create table atendimentos(
@@ -42,7 +43,7 @@ create table atendimentos(
 -- Exemplos de Psicologos
 
 INSERT INTO psicologo (nome, email, senha, apresentacao)
-VALUES ("Albert Stelio Klisman", "albertStelio@teste.com", "12345",
+VALUES ("Albert Stelio Klisman", "albertStelio@teste.com", "12345678",
  "Ser feliz sem motivo é a mais autêntica forma de felicidade."
  );
  
@@ -71,18 +72,30 @@ select * FROM psicologo;
 
 
 
+
 -- Exemplos de Pacientes
- INSERT INTO paciente (nome, idade, email, senha)
-VALUES ("Stefanny Decapri", "1998/06/15", "Decapri@teste.com", "12345678"
- );
+ INSERT INTO paciente (nome, idade, email)
+VALUES ("Stefanny Decapri", "1998/06/15", "Decapri@teste.com" );
+
+ INSERT INTO paciente (nome, idade, email)
+VALUES ("João Batista", "1968/06/15", "joaobatista@teste.com" );
+
+ INSERT INTO paciente (nome, idade, email)
+VALUES ("Avril Lavigne", "1998/06/15", "AvrilProd@teste.com" );
  
  select * FROM paciente;
  
  
+ 
+ 
+  -- Exemplos de Atendimentos
+ 
  INSERT INTO atendimentos ( paciente_id, psicologo_id, data_atendimento, observacao)
-VALUES ( 1, 1,  "2020/04/10",
- "O paciente apresenta transtornos mentais. Ass: Albert. ."
+VALUES ( 4, 1,  "2020/04/10",
+ "O amigo é maluco beleza. Raul ."
  );
+ 
+
  
   select * FROM atendimentos;
  

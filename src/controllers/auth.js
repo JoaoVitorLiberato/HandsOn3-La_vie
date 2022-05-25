@@ -24,8 +24,8 @@ const AuthController = {
 
             const token = jtw.sign(psicologoLogin, secret.key);
 
-            return res.json({ token, psicologoLogin });
-            
+            return res.json(token);
+
         } catch (error) {
             console.log(error);
         }
@@ -38,18 +38,21 @@ const AuthController = {
         try {
 
             const { nome, email, senha, apresentacao } = req.body;
-            const password = bcrypt.hashSync(senha, 6);
+            const ExistingEmail = await Psicologo.count({ where: { email } });
+            const passCrypto = bcrypt.hashSync(senha, 10);
 
-            const { id } = await Psicologo.create({ nome, email, senha: password });
-            const psicologo = { id, nome, email, apresentacao };
+            if (!ExistingEmail) {
 
-            const token = jtw.sign(psicologo, secret.key);
-
-            return res.json({ token, psicologo });
+                const newPsic = await Psicologo.create({ nome, email, senha: passCrypto, apresentacao });
+                return res.json(newPsic)
+            } else {
+                return res.status(400).json(" Existing");
+            }
 
         } catch (error) {
 
             console.log(error.message);
+            res.status(500).json({ erro: "Shiiiii, There were system problems!" });
         }
 
     },

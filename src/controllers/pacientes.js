@@ -1,17 +1,15 @@
-const { Paciente } = require("../models");
+const { Paciente, Psicologo, Atendimentos } = require("../models");
 
 const PacienteController = {
-
 
     index: async (req, res) => {
         try {
 
-            const allPacientes = await Paciente.findAll();
-            res.json(allPacientes);
-            res.status(200).json({ menssage: "Success in listing all patient in La vie." });
+            const allPacientes = await Paciente.findAll();   
+            res.status(200).json(allPacientes);
 
         } catch (error) {
-
+            console.error(error.message);
             res.status(500).json({ erro: "Shiiiii, There were system problems!" });
 
         }
@@ -23,6 +21,7 @@ const PacienteController = {
 
             const { nome, idade, email, senha} = req.body;
 
+           
             const newPaciente = await Paciente.create(
                 {
                     nome,
@@ -41,7 +40,7 @@ const PacienteController = {
 
 
         } catch (error) {
-            console.error(erro.message);
+            console.error(error.message);
             res.status(500).json({ erro: "Shiiiii, There were system problems!" });
 
         }
@@ -67,7 +66,7 @@ const PacienteController = {
 
 
         } catch (error) {
-            
+            console.error(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
@@ -94,7 +93,7 @@ const PacienteController = {
             
 
         } catch (error) {
-           
+            console.error(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
@@ -121,7 +120,7 @@ const PacienteController = {
 
 
         } catch (error) {
-           
+            console.error(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }

@@ -22,6 +22,14 @@ const Atendimentos = DataBase.define(
             }
         },
 
+        psicologo_id: {
+            type: DataTypes.INTEGER,
+            References: {
+                model: Psicologo,
+                key: "id"
+            }
+        },
+
         data_atendimento: {
             type: DataTypes.DATE,
             allowNull : false,
@@ -34,13 +42,7 @@ const Atendimentos = DataBase.define(
 
         
 
-        psicologo_id: {
-            type: DataTypes.INTEGER,
-            References: {
-                model: Psicologo,
-                key: "id"
-            }
-        },
+        
 
     },
     
