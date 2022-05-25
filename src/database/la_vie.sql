@@ -47,22 +47,22 @@ VALUES ("Albert Stelio Klisman", "albertStelio@teste.com", "12345",
  );
  
  INSERT INTO psicologo (nome, email, senha, apresentacao)
-VALUES ("Livia Lavinon Oliver", "LavinonOlivero@teste.com", "12345",
+VALUES ("Livia Lavinon Oliver", "LavinonOlivero@teste.com", "12345678",
  "Ser feliz sem motivo é a mais autêntica forma de felicidade."
  );
  
   INSERT INTO psicologo (nome, email, senha, apresentacao)
-VALUES ("Alan Santissimo", "SantisimoAlan@teste.com", "12345",
+VALUES ("Alan Santissimo", "SantisimoAlan@teste.com", "12345678",
  "Ser feliz sem motivo é a mais autêntica forma de felicidade."
  );
  
    INSERT INTO psicologo (nome, email, senha, apresentacao)
-VALUES ("Tales dos Santos", "talesSantos@teste.com", "12345",
+VALUES ("Tales dos Santos", "talesSantos@teste.com", "12345678",
  "Ser feliz sem motivo é a mais autêntica forma de felicidade."
  );
  
     INSERT INTO psicologo (nome, email, senha, apresentacao)
-VALUES ("João Barreto", "barretoDa51@teste.com", "12345",
+VALUES ("João Barreto", "barretoDa51@teste.com", "12345678",
  "Ser feliz sem motivo é a mais autêntica forma de felicidade."
  );
  
@@ -73,7 +73,7 @@ select * FROM psicologo;
 
 -- Exemplos de Pacientes
  INSERT INTO paciente (nome, idade, email, senha)
-VALUES ("Stefanny Decapri", "1998/06/15", "Decapri@teste.com", "12345"
+VALUES ("Stefanny Decapri", "1998/06/15", "Decapri@teste.com", "12345678"
  );
  
  select * FROM paciente;

@@ -6,11 +6,18 @@ const homeController = require("../controllers/home");
 const AtendimentosController = require("../controllers/atendimentos")
 const ControllerPsicologos = require("../controllers/psicologos");
 const ControllerPacientes = require("../controllers/pacientes");
+const AuthController = require("../controllers/auth");
 
 
+const AutoSigninValidation = require("../validators/auth/signin");
+const AutoSignupValidation = require("../validators/auth/signup");
 
 
 routes.get("/", homeController.home );
+
+
+routes.post("/auth/signin", AutoSigninValidation, AuthController.signin);
+routes.post("/auto/signup", AutoSignupValidation, AuthController.signup);
 
 
 routes.get("/psicologos", ControllerPsicologos.index);
