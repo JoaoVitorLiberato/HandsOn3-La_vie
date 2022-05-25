@@ -8,6 +8,7 @@ const AtendimentosController = {
 
         try {
             
+            const SigninPsi = await Psicologo.findByPk(req.auth.id)
             const Calls = await Atendimentos.findAll( {include: Paciente });
             res.json(Calls);
 

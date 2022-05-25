@@ -34,13 +34,13 @@ const Atendimentos = DataBase.define(
 
         
 
-        // psicologo_id: {
-        //     type: DataTypes.INTEGER,
-        //     References: {
-        //         model: Psicologo,
-        //         key: "id"
-        //     }
-        // },
+        psicologo_id: {
+            type: DataTypes.INTEGER,
+            References: {
+                model: Psicologo,
+                key: "id"
+            }
+        },
 
     },
     

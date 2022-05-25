@@ -27,15 +27,15 @@ create table paciente(
 create table atendimentos(
 	id int primary key auto_increment,
     paciente_id int not null,
+    psicologo_id int not null,
 	data_atendimento date not null,
     observacao varchar(1000),
 	
-    constraint FK_PacienteID foreign key(paciente_id) references paciente(id) on delete cascade
+    constraint FK_PacienteID foreign key(paciente_id) references paciente(id) on delete cascade,
+    constraint FK_Psicologo_id foreign key(psicologo_id) references psicologo(id)
 
 );
--- Para caso precise usar o id do psicologo.
--- psicologo_id int not null,
--- constraint FK_Psicologo_id foreign key(psicologo_id) references psicologo(id)
+
 
  drop table atendimentos;
 
@@ -79,9 +79,9 @@ VALUES ("Stefanny Decapri", "1998/06/15", "Decapri@teste.com", "12345678"
  select * FROM paciente;
  
  
- INSERT INTO atendimentos ( paciente_id, data_atendimento, observacao)
-VALUES ( 1, "2020/04/10",
- "O paciente apresenta transtornos mentais. Ass: Gama Academy."
+ INSERT INTO atendimentos ( paciente_id, psicologo_id, data_atendimento, observacao)
+VALUES ( 1, 1,  "2020/04/10",
+ "O paciente apresenta transtornos mentais. Ass: Albert. ."
  );
  
   select * FROM atendimentos;
