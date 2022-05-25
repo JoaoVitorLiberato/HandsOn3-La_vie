@@ -14,23 +14,6 @@ const Atendimentos = DataBase.define(
             autoIncrement: true,
         },
 
-        data_atendimento: {
-            type: DataTypes.DATE
-        },
-
-        observacao: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-
-        psicologo_id: {
-            type: DataTypes.INTEGER,
-            References: {
-                model: Psicologo,
-                key: "id"
-            }
-        },
-
         paciente_id:{
             type: DataTypes.INTEGER,
             References: {
@@ -38,6 +21,26 @@ const Atendimentos = DataBase.define(
                 key: "id"
             }
         },
+
+        data_atendimento: {
+            type: DataTypes.DATE,
+            allowNull : false,
+        },
+
+        observacao: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
+        
+
+        // psicologo_id: {
+        //     type: DataTypes.INTEGER,
+        //     References: {
+        //         model: Psicologo,
+        //         key: "id"
+        //     }
+        // },
 
     },
     

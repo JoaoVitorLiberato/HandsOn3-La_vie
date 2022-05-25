@@ -2,14 +2,15 @@ const express = require("express");
 const  { route }  = require("express/lib/application");
 const routes = express.Router();
 
-const {home} = require("../controllers/home");
+const homeController = require("../controllers/home");
+const AtendimentosController = require("../controllers/atendimentos")
 const ControllerPsicologos = require("../controllers/psicologos");
 const ControllerPacientes = require("../controllers/pacientes");
 
 
 
 
-routes.get("/", home);
+routes.get("/", homeController.home );
 
 
 routes.get("/psicologos", ControllerPsicologos.index);
@@ -25,6 +26,8 @@ routes.get("/pacientes/:id", ControllerPacientes.show);
 routes.put("/pacientes/:id", ControllerPacientes.update);
 routes.delete("/pacientes/:id", ControllerPacientes.destroy);
 
+
+routes.get("/atendimentos", AtendimentosController.index);
 
 
 module.exports = routes;

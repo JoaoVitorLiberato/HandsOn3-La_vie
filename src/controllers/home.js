@@ -1,13 +1,13 @@
 const routes = require("../routes/index");
 
 
-const login = {
+const home = {
     home: (req, res) => {
-        res.statusCode = 200;
+        
         res.setHeader("Content-Type", "application/json");
-        res.end("Faça seu Login!");
+        res.status(200).json("Projeto La Vie 1.0");
     }
 }
 
 
-module.exports = login;
+module.exports = home;
