@@ -1,4 +1,3 @@
-const { op } = require("sequelize");
 const { Atendimentos, Psicologo, Paciente } = require("../models");
 
 
@@ -21,12 +20,11 @@ const AtendimentosController = {
     store: async (req, res) => {
 
         const { paciente_id, psicologo_id, data_atendimento, observacao } = req.body;
-        
+
 
         try {
 
 
-            
             const NewCall = await Atendimentos.create(
                 {
                     paciente_id,
@@ -36,15 +34,15 @@ const AtendimentosController = {
                 }
             );
 
-            res.status(201).json(NewCall);
-
-            
+            return res.status(201).json(NewCall);
 
 
 
         } catch (error) {
+
             console.error(error.message);
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
+
         }
     },
 
@@ -56,11 +54,11 @@ const AtendimentosController = {
             const atendimentos = await Atendimentos.findByPk(id);
 
             if (atendimentos) {
-               return res.status(200).json(atendimentos);
+                return res.status(200).json(atendimentos);
             }
 
             res.status(404).json({ message: "service not found!" });
-            
+
 
 
         } catch (error) {
@@ -73,5 +71,6 @@ const AtendimentosController = {
 
 
 }
+
 
 module.exports = AtendimentosController;

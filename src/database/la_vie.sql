@@ -6,7 +6,7 @@ create table psicologo(
 	id int primary key auto_increment,
     nome varchar(100) not null,
     email varchar(100) not null unique,
-    senha varchar(16),
+    senha varchar(300),
     apresentacao varchar(1000) not null
 );
 
@@ -33,7 +33,7 @@ create table atendimentos(
     observacao varchar(1000),
 	
     constraint FK_PacienteID foreign key(paciente_id) references paciente(id) on delete cascade,
-    constraint FK_Psicologo_id foreign key(psicologo_id) references psicologo(id)
+    constraint FK_Psicologo_id foreign key(psicologo_id) references psicologo(id) on delete cascade
 
 );
 
@@ -94,6 +94,12 @@ VALUES ("Avril Lavigne", "1998/06/15", "AvrilProd@teste.com" );
 VALUES ( 4, 1,  "2020/04/10",
  "O amigo é maluco beleza. Raul ."
  );
+ 
+  INSERT INTO atendimentos ( paciente_id, psicologo_id, data_atendimento, observacao)
+VALUES ( 6, 5, "2018/05/20",
+ "O amigo é maluco beleza. Raul ."
+ );
+ 
  
 
  

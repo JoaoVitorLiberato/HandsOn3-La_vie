@@ -1,4 +1,5 @@
 const { Psicologo } = require("../models");
+const bcrypt = require("bcrypt")
 
 const PsicologoController = {
 
@@ -68,10 +69,34 @@ const PsicologoController = {
 
 
         } catch (error) {
-            console.error(error.message);
+
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
+    },
+
+     store: async (req, res) => {
+
+        try {
+
+            const { nome, email, senha, apresentacao } = req.body;
+            const ExistingEmail = await Psicologo.count({ where: { email } });
+            const passCrypto = bcrypt.hashSync(senha, 10);
+
+            if (!ExistingEmail) {
+
+                const newPsic = await Psicologo.create({ nome, email, senha: passCrypto, apresentacao });
+                return res.json(newPsic)
+            } else {
+                return res.status(400).json({ message: "Existing"});
+            }
+
+        } catch (error) {
+
+            console.log(error.message);
+            res.status(500).json({ erro: "Shiiiii, There were system problems!" });
+        }
+
     },
 
     update: async (req, res) => {
@@ -123,7 +148,7 @@ const PsicologoController = {
 
 
         } catch (error) {
-            console.error(error.message);
+            
             res.status(500).json({ error: "Shiiiii, There were system problems!" });
 
         }
