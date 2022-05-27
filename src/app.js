@@ -2,21 +2,22 @@ const express = require("express");
 
 const DataBase = require("./database/index");
 const routes = require("./routes/index");
-const handleErro = require("./middlewares/handkeError")
+const handleErro = require("./middlewares/handleError")
 const authMiddleware = require("./middlewares/auth");
 const jwtMiddleware = require("./middlewares/jwt");
 
 const port = 3001;
-
 const app = express();
 
 DataBase.hasConnection();
 
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
-// app.use( jwtMiddleware.unless({ path: ["/", "/auth/signin", "/auth/signup"] }) );
-// app.use(authMiddleware);
+app.use( jwtMiddleware.unless({ path: ["/", "/login", "/psicologos"] }) );
+
+app.use(authMiddleware);
 
 app.use(routes);
 
@@ -27,4 +28,4 @@ app.use((req, res) => {
 });
 
 
-app.listen(port, () => console.log(`Running server at port: ${port}`));
+app.listen(port, () => console.log(`La-Vie server running at port: ${port}`));

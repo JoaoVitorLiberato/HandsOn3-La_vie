@@ -1,5 +1,7 @@
 const { Psicologo } = require("../models");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const secret = require("../config/secret")
 
 const PsicologoController = {
 
@@ -23,17 +25,31 @@ const PsicologoController = {
         try {
 
             const { nome, email, senha, apresentacao } = req.body;
+            const hashPass = bcrypt.hashSync(senha, 10);
 
-            const newPsicologo = await Psicologo.create(
+            const { id } = await Psicologo.create(
                 {
                     nome,
                     email,
-                    senha,
+                    senha: hashPass,
                     apresentacao
 
                 },
-
             );
+
+            const NewPsy = {
+                id,
+                nome,
+                email,
+                senha,
+                apresentacao,
+            };
+
+            const token = jwt.sign(NewPsy, secret.key);
+
+            res.status(201).json( {NewPsy} );
+
+
 
 
             res.json(newPsicologo);

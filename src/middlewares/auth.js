@@ -1,5 +1,6 @@
 const { Psicologo } = require("../models");
 
+
 module.exports = async (req, res, next) => {
 
     if (req.auth) {
@@ -8,14 +9,14 @@ module.exports = async (req, res, next) => {
         if (!psicologo) {
             next({
                 status: 401,
-                email: "Unauthorized",
+                name: "Unauthorized Error",
                 inner: {
-                    message: "Email não autorizado!"
+                    message: "Invalid user code.!"
                 }
             })
         }
-    
+        
     }
+    
     next();
-
 };

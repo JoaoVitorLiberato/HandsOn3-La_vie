@@ -5,9 +5,10 @@ use la_vie;
 create table psicologo(
 	id int primary key auto_increment,
     nome varchar(100) not null,
-    email varchar(100) not null unique,
+    email varchar(100) not null,
     senha varchar(300),
     apresentacao varchar(1000) not null
+    
 );
 
 -- drop table psicologo;
@@ -22,7 +23,7 @@ create table paciente(
  
 );
 
-drop table paciente;
+-- drop table paciente;
 
 
 create table atendimentos(
@@ -38,7 +39,7 @@ create table atendimentos(
 );
 
 
- drop table atendimentos;
+-- drop table atendimentos;
 
 -- Exemplos de Psicologos
 
