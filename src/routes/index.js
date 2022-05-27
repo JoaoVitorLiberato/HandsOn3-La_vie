@@ -14,7 +14,6 @@ const loginValidacao = require("../validators/auth/Login/signin");
 const CreatePsicologo = require("../validators/auth/Criar-psicologo/StorePsy");
 
 
-
 routes.post("/login", loginValidacao, AuthController.signin);
 
 routes.get("/", homeController.home );

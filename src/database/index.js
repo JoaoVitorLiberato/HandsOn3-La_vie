@@ -14,7 +14,6 @@ const DB_CONFIG = {
 let dataBase = {};
 
 
-
 try {
 
     dataBase = new sequelize(DB_NAME, DB_USER, DB_PASS, DB_CONFIG);

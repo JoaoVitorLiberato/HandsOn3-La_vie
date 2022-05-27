@@ -129,6 +129,5 @@ const PacienteController = {
 
     }
 
-
 }
 module.exports = PacienteController;

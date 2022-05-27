@@ -65,7 +65,6 @@ const PsicologoController = {
         }
 
 
-
     },
 
     show: async (req, res) => {

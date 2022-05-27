@@ -4,8 +4,6 @@ const Paciente = require("./paciente");
 const Psicologo = require("./psicologo");
 const Atendimentos = require("./atendimentos");
 
-
-
 Atendimentos.belongsTo(Paciente, {
     foreignKey: "paciente_id"
 });

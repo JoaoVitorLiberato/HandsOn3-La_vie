@@ -1,7 +1,6 @@
 const DataBase = require("../database/index");
 const {DataTypes} = require("sequelize");
 
-
 const Paciente = DataBase.define(
     "paciente",
     {

@@ -1,6 +1,5 @@
 const { Atendimentos, Psicologo, Paciente } = require("../models");
 
-
 const AtendimentosController = {
 
     index: async (req, res) => {

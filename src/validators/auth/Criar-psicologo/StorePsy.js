@@ -8,4 +8,5 @@ module.exports = validate({
     apresentacao: Joi.string().required(),
 
   }),
+  
 });

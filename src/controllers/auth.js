@@ -24,9 +24,6 @@ const AuthController = {
 
             }
 
-
-        
-
             const token = jwt.sign(
                 {
                     id: psicologo.id,
@@ -38,7 +35,7 @@ const AuthController = {
 
             const verify = jwt.verify(token, secret.key)
 
-            return res.json(loginPsy);
+            return res.json(token);
 
 
 

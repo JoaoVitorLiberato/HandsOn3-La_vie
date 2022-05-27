@@ -14,7 +14,6 @@ create table psicologo(
 -- drop table psicologo;
 
 
-
 create table paciente(
 	id int primary key auto_increment,
     nome varchar(100) not null,
